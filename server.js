@@ -22,7 +22,9 @@ const transporter = nodemailer.createTransport({
         user: process.env.USER,
         pass: process.env.PASSWORD
     }
-});
+}); 
+
+
 
 transporter.sendMail({
         from: 'sender@example.com',
