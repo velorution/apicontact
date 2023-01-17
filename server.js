@@ -3,19 +3,15 @@
 | Server.js 
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| Here is the server.js
+| 
+| 
 |
 */
-
 const express = require("express");
 const nodemailer = require("nodemailer");
 
-
-//Nodemailer transporter
-// We choose an External transport 
-// using await ?  
+//Nodemailer transporter using await ?  We choose an External transport 
 const transporter = nodemailer.createTransport({
     service: 'SendinBlue', // no need to set host or port etc.
     auth: {
@@ -23,7 +19,6 @@ const transporter = nodemailer.createTransport({
         pass: process.env.PASSWORD
     }
 }); 
-
 
 
 transporter.sendMail({
@@ -36,18 +31,19 @@ transporter.sendMail({
         console.log(info.messageId);
     });
 
-app.get("/", (req, res) => {
-    res.render(index.html);
-    });
-      
-app.get("/contact", (req, res) => {
-    res.render(contact.html);
-    });
+
+app.post('/api/', (req, res, next) => {
+    console.log(req.body);
+    res.status(201).json({
+        message: 'Objet créé !'
+        });
+      });
+
       
 app.post("/contact", async (req, res, next) => {
     const { yourname, youremail, yoursubject, yourmessage } = req.body;
     try {
-        await mainMail(yourname, youremail, yoursubject, yourmessage);
+        await sendMail(yourname, youremail, yoursubject, yourmessage);
           
           res.send("Message Successfully Sent!");
         } catch (error) {
