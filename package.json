@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/velorution/apicontact/issues"
   },
-  "homepage": "https://github.com/velorution/apicontact#readme"
+  "homepage": "https://github.com/velorution/apicontact#readme",
+  "dependencies": {
+    "nodemailer": "^6.9.0"
+  }
 }
