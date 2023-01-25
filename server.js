@@ -5,7 +5,6 @@ const sibApiV3Sdk = require('sendinblue-api');
 const {apiKey} = require('./config');
 
 
-
 const server = express();
 server.use(express.json());
 
