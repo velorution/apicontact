@@ -1,4 +1,4 @@
-import server from './config/server';
+const config = require('./config/server');
 // A mettre dans le fichier .env 
 const PORT = 5000;
 
