@@ -1,18 +1,18 @@
 /*
 |--------------------------------------------------------------------------
-| Server.js 
+| config.js - Fichier de configuration pour l'API 
 |--------------------------------------------------------------------------
 |
-| Here is the server.js
-| 
-| 
+| Contient les informations d'authentification
+| pour l'intégration avec SendInBlue et les
+| paramètres de configuration nécessaires.
 |
 */
 
 require('dotenv').config();
 
-const sibApiV3Sdk = require('sendinblue-api');
-const defaultClient = sibApiV3Sdk.ApiClient.instance;
+const sendinblue = require('sendinblue-api');
+const defaultClient = sendinblue.ApiClient.instance;
 
 // Configure API key authorization: api-key
 const apiKey = defaultClient.authentications['api-key'];
