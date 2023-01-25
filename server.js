@@ -1,5 +1,5 @@
 const express = require('express');
-const jwt = require('express-jwt');
+const { expressjwt: expressJwt } = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
 const sibApiV3Sdk = require('sendinblue-api');
 const {apiKey} = require('./config');
@@ -8,7 +8,7 @@ const {apiKey} = require('./config');
 const server = express();
 server.use(express.json());
 
-const checkJwt = jwt({
+const checkJwt = expressJwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
