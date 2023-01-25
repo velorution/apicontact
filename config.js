@@ -11,7 +11,7 @@
 
 require('dotenv').config();
 
-const sendinblue = require('sendinblue-api');
+const sendinblue = require('sib-api-v3-sdk');
 const defaultClient = sendinblue.ApiClient.instance;
 
 // Configure API key authorization: api-key
